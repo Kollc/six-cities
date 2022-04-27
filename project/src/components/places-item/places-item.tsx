@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PERCENTAGE_MULTIPLIER } from '../../consts';
 import { HotelType } from '../../types/types';
 
@@ -36,7 +37,7 @@ function PlacesItem({hotel}: PlacesItemProps): JSX.Element {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">{hotel.title}</a>
+          <Link to={`offer/${hotel.id}`}>{hotel.title}</Link>
         </h2>
         <p className="place-card__type">{hotel.type}</p>
       </div>

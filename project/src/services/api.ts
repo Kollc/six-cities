@@ -1,6 +1,7 @@
-import { BASE_URL, TIMEOUT_SERVER } from './../consts';
+import { APIRoute, BASE_URL, TIMEOUT_SERVER } from './../consts';
 import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { getToken } from './token';
+import { ErrorType, HotelType } from '../types/types';
 
 export const createApi = (): AxiosInstance => {
   const api = axios.create({
@@ -23,3 +24,14 @@ export const createApi = (): AxiosInstance => {
 
   return api;
 };
+
+export const getHotelById = async (id: number, setError: (error: ErrorType) => void) => {
+  const api = createApi();
+
+  try {
+    const {data} =  await api.get<HotelType>(`${APIRoute.Hotels}/${id}`);
+    return data;
+  } catch (error) {
+    setError(error);
+  }
+} ;

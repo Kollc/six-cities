@@ -35,3 +35,5 @@ export const SortHotelTypesTitels =  new Map([
 ]);
 
 export const PERCENTAGE_MULTIPLIER = 20;
+
+export const COUNT_SHOW_PHOTO_HOTEL  = 6;

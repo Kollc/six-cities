@@ -52,3 +52,12 @@ export type authData = {
   email: string,
   password: string,
 };
+
+export type ErrorType = unknown;
+
+export type HostType = {
+  avatarUrl: string
+  id: number
+  isPro: boolean
+  name: string
+};
