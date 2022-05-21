@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import ErrorPage from '../pages/error-page/error-page';
 import FavoritesPage from '../pages/favorites-page/favorites-page';
 import MainPage from '../pages/main-page/main-page';
 import RoomPage from '../pages/room-page/room-page';
@@ -12,7 +13,7 @@ function App(): JSX.Element {
       <Route path="/login" element={<SignInPage/>}/>
       <Route path="/favorites" element={<PrivateRoute><FavoritesPage/></PrivateRoute>}/>
       <Route path="/offer/:id" element={<RoomPage/>}/>
-      <Route path="*" element={<div>404 Page Not Found</div>}/>
+      <Route path="*" element={<ErrorPage/>}/>
     </Routes>
   );
 }
