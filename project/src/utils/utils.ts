@@ -1,3 +1,4 @@
+import { ValidationFieldType } from './../consts';
 import { SortHotelTypes } from '../consts';
 import { HotelType } from '../types/types';
 
@@ -21,3 +22,20 @@ export const sortHotelsList = (typeSort: SortHotelTypes, hotels: HotelType[]): H
   }
 };
 
+export const checkFieldIsNotEmpty = (value: string) => {
+  if(value === '') {
+    return ValidationFieldType.Empty;
+  }
+
+  return ValidationFieldType.NotError;
+};
+
+export const checkPasswordFieldFormat = (value: string) => {
+  if(value === '') {
+    return ValidationFieldType.Empty;
+  } else if(!(/(?=.*\d)(?=.*[a-z])/i.test(value))) {
+    return ValidationFieldType.PasswordFormatInvalid;
+  }
+
+  return ValidationFieldType.NotError;
+};

@@ -5,6 +5,7 @@ import { HotelsDataType } from '../../types/state';
 const initialState: HotelsDataType = {
   hotels: [],
   isLoadedHotels: false,
+  error: '',
 };
 
 export const hotelsData = createSlice({
@@ -15,8 +16,14 @@ export const hotelsData = createSlice({
       state.hotels = action.payload;
       state.isLoadedHotels = true;
     },
+    setHotelsError: (state, action) => {
+      state.error = action.payload;
+    },
+    resetHotelsError: (state) => {
+      state.error = '';
+    },
   },
 });
 
-export const {setHotels} = hotelsData.actions;
+export const {setHotels, setHotelsError, resetHotelsError} = hotelsData.actions;
 
